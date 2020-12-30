@@ -31,7 +31,7 @@ var data1 = [
   { date: 28, kilos: 56.4, cycle: 0 },
   { date: 29, kilos: 55.3, cycle: 0 },
   { date: 30, kilos: 55.1, cycle: 0 },
-  { date: 31, kilos: 55.3, cycle: 0 },
+  { date: 31, kilos: "-", cycle: 0 },
 ];
 
 var margin = { top: 10, right: 30, bottom: 30, left: 50 },
