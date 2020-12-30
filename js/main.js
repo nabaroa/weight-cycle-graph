@@ -59,7 +59,7 @@ svg.append("g").attr("class", "myYaxis");
 
 var z = d3.scaleLinear().range([0, 1]);
 
-function update(data) {
+function showGraph(data) {
   x.domain([
     0,
     d3.max(data, function (d) {
@@ -83,8 +83,6 @@ function update(data) {
   show
     .enter()
     .append("path")
-    .attr("class", "lineTest")
-    .merge(show)
     .attr(
       "d",
       d3
@@ -97,7 +95,7 @@ function update(data) {
         })
     )
     .attr("fill", "none")
-    .attr("stroke", "steelblue")
+    .attr("stroke", "grey")
     .attr("stroke-width", 2);
 
   svg
@@ -116,5 +114,21 @@ function update(data) {
       return z(d.cycle);
     })
     .attr("fill", "red");
+ 
+    svg
+    .append("g")
+    .selectAll("dot")
+    .data(data1)
+    .enter()
+    .append("line")
+    .attr("x1", "0")
+    .attr("y1", "26%")
+    .attr("x2", "100%")
+    .attr("y2", "26%")
+    .attr("fill", "none")
+    .attr("stroke", "red")
+    .attr("stroke-width", "1")
+    .attr("stroke-dasharray", "4 10");
 }
-update(data1);
+
+showGraph(data1);
