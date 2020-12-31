@@ -1,40 +1,40 @@
 // I am using https://www.d3-graph-gallery.com/index.html
 
 var data1 = [
-  { date: 1, kilos: 56.1, cycle: 0 },
-  { date: 2, kilos: 55.5, cycle: 0 },
-  { date: 3, kilos: 56.2, cycle: 0 },
-  { date: 4, kilos: 56.2, cycle: 0 },
-  { date: 5, kilos: 56.8, cycle: 0 },
-  { date: 6, kilos: 55.4, cycle: 0 },
-  { date: 7, kilos: 55.7, cycle: 0 },
-  { date: 8, kilos: 56.1, cycle: 5 },
-  { date: 9, kilos: 55.8, cycle: 15 },
-  { date: 10, kilos: 55.3, cycle: 10 },
-  { date: 11, kilos: 55.9, cycle: 5 },
-  { date: 12, kilos: 55.5, cycle: 0 },
-  { date: 13, kilos: 55.5, cycle: 0 },
-  { date: 14, kilos: 56.2, cycle: 0 },
-  { date: 15, kilos: 55.6, cycle: 0 },
-  { date: 16, kilos: 55.9, cycle: 0 },
-  { date: 17, kilos: 55.6, cycle: 0 },
-  { date: 18, kilos: 55.7, cycle: 0 },
-  { date: 19, kilos: 55.7, cycle: 0 },
-  { date: 20, kilos: 54.9, cycle: 0 },
-  { date: 21, kilos: 55.4, cycle: 0 },
-  { date: 22, kilos: 56.1, cycle: 0 },
-  { date: 23, kilos: 55.3, cycle: 0 },
-  { date: 24, kilos: 55.5, cycle: 0 },
-  { date: 25, kilos: 55.5, cycle: 0 },
-  { date: 26, kilos: 56.4, cycle: 0 },
-  { date: 27, kilos: 56.4, cycle: 0 },
-  { date: 28, kilos: 56.4, cycle: 0 },
-  { date: 29, kilos: 55.3, cycle: 0 },
-  { date: 30, kilos: 55.1, cycle: 0 },
-  { date: 31, kilos: "-", cycle: 0 },
+  { date: 1, kilos: 56.1, cycle: 0, swimming: 0 },
+  { date: 2, kilos: 55.5, cycle: 0, swimming: 5 },
+  { date: 3, kilos: 56.2, cycle: 0, swimming: 5 },
+  { date: 4, kilos: 56.2, cycle: 0, swimming: 5 },
+  { date: 5, kilos: 56.8, cycle: 0, swimming: 5 },
+  { date: 6, kilos: 55.4, cycle: 0, swimming: 5 },
+  { date: 7, kilos: 55.7, cycle: 0, swimming: 0 },
+  { date: 8, kilos: 56.1, cycle: 5, swimming: 5 },
+  { date: 9, kilos: 55.8, cycle: 15, swimming: 0 },
+  { date: 10, kilos: 55.3, cycle: 10, swimming: 0 },
+  { date: 11, kilos: 55.9, cycle: 5, swimming: 5 },
+  { date: 12, kilos: 55.5, cycle: 0, swimming: 0 },
+  { date: 13, kilos: 55.5, cycle: 0, swimming: 5 },
+  { date: 14, kilos: 56.2, cycle: 0, swimming: 0 },
+  { date: 15, kilos: 55.6, cycle: 0, swimming: 5 },
+  { date: 16, kilos: 55.9, cycle: 0, swimming: 0 },
+  { date: 17, kilos: 55.6, cycle: 0, swimming: 5 },
+  { date: 18, kilos: 55.7, cycle: 0, swimming: 0 },
+  { date: 19, kilos: 55.7, cycle: 0, swimming: 5 },
+  { date: 20, kilos: 54.9, cycle: 0, swimming: 0 },
+  { date: 21, kilos: 55.4, cycle: 0, swimming: 5 },
+  { date: 22, kilos: 56.1, cycle: 0, swimming: 0 },
+  { date: 23, kilos: 55.3, cycle: 0, swimming: 5 },
+  { date: 24, kilos: 55.5, cycle: 0, swimming: 0 },
+  { date: 25, kilos: 55.5, cycle: 0, swimming: 0 },
+  { date: 26, kilos: 56.4, cycle: 0, swimming: 5 },
+  { date: 27, kilos: 56.4, cycle: 0, swimming: 0 },
+  { date: 28, kilos: 56.4, cycle: 0, swimming: 5 },
+  { date: 29, kilos: 55.3, cycle: 0, swimming: 0 },
+  { date: 30, kilos: 55.1, cycle: 0, swimming: 5 },
+  { date: 31, kilos: 55.4, cycle: 0, swimming: 0 },
 ];
 
-var margin = { top: 10, right: 30, bottom: 30, left: 50 },
+var margin = { top: 10, right: 30, bottom: 70, left: 50 },
   width = 800 - margin.left - margin.right,
   height = 400 - margin.top - margin.bottom;
 
@@ -61,7 +61,7 @@ var z = d3.scaleLinear().range([0, 1]);
 
 function showGraph(data) {
   x.domain([
-    0,
+    1,
     d3.max(data, function (d) {
       return d.date;
     }),
@@ -114,8 +114,8 @@ function showGraph(data) {
       return z(d.cycle);
     })
     .attr("fill", "red");
- 
-    svg
+
+  svg
     .append("g")
     .selectAll("dot")
     .data(data1)
@@ -129,6 +129,22 @@ function showGraph(data) {
     .attr("stroke", "red")
     .attr("stroke-width", "1")
     .attr("stroke-dasharray", "4 10");
+
+  // swimming tracking
+  svg
+    .append("g")
+    .selectAll("dot")
+    .data(data1)
+    .enter()
+    .append("circle")
+    .attr("cx", function (d) {
+      return x(d.date);
+    })
+    .attr("cy", "350")
+    .attr("r", function (d) {
+      return z(d.swimming);
+    })
+    .attr("fill", "blue");
 }
 
 showGraph(data1);

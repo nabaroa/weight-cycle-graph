@@ -1,3 +1,8 @@
 .graph {
   overflow: auto;
 }
+
+.myXaxis,
+.myYaxis {
+  color: var(--color--k-6);
+}
