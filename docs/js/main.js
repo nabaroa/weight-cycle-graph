@@ -3,15 +3,15 @@
 var data1 = [
   { date: 1, kilos: 56.1, cycle: 0, swimming: 0 },
   { date: 2, kilos: 55.5, cycle: 0, swimming: 5 },
-  { date: 3, kilos: 56.2, cycle: 0, swimming: 5 },
-  { date: 4, kilos: 56.2, cycle: 0, swimming: 5 },
-  { date: 5, kilos: 56.8, cycle: 0, swimming: 5 },
-  { date: 6, kilos: 55.4, cycle: 0, swimming: 5 },
+  { date: 3, kilos: 56.2, cycle: 5, swimming: 5 },
+  { date: 4, kilos: 56.2, cycle: 15, swimming: 5 },
+  { date: 5, kilos: 56.8, cycle: 10, swimming: 5 },
+  { date: 6, kilos: 55.4, cycle: 5, swimming: 5 },
   { date: 7, kilos: 55.7, cycle: 0, swimming: 0 },
-  { date: 8, kilos: 56.1, cycle: 5, swimming: 5 },
-  { date: 9, kilos: 55.8, cycle: 15, swimming: 0 },
-  { date: 10, kilos: 55.3, cycle: 10, swimming: 0 },
-  { date: 11, kilos: 55.9, cycle: 5, swimming: 5 },
+  { date: 8, kilos: 56.1, cycle: 0, swimming: 5 },
+  { date: 9, kilos: 55.8, cycle: 0, swimming: 0 },
+  { date: 10, kilos: 55.3, cycle: 0, swimming: 0 },
+  { date: 11, kilos: 55.9, cycle: 0, swimming: 5 },
   { date: 12, kilos: 55.5, cycle: 0, swimming: 0 },
   { date: 13, kilos: 55.5, cycle: 0, swimming: 5 },
   { date: 14, kilos: 56.2, cycle: 0, swimming: 0 },
@@ -31,7 +31,7 @@ var data1 = [
   { date: 28, kilos: 56.4, cycle: 0, swimming: 5 },
   { date: 29, kilos: 55.3, cycle: 0, swimming: 0 },
   { date: 30, kilos: 55.1, cycle: 0, swimming: 5 },
-  { date: 31, kilos: 55.4, cycle: 0, swimming: 0 },
+  { date: 31, kilos: 55.4, cycle: 5, swimming: 0 },
 ];
 
 var margin = { top: 10, right: 30, bottom: 70, left: 50 },
@@ -96,7 +96,7 @@ function showGraph(data) {
     )
     .attr("fill", "none")
     .attr("stroke", "grey")
-    .attr("stroke-width", 2);
+    .attr("stroke-width", 1);
 
   svg
     .append("g")
