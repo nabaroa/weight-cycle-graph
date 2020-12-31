@@ -2,6 +2,7 @@
 var margin = { top: 10, right: 30, bottom: 120, left: 60 },
   width = 900 - margin.left - margin.right,
   height = 400 - margin.top - margin.bottom;
+  
 // append the svg object to the body of the page
 var svg = d3
   .select("#graph")
@@ -13,6 +14,7 @@ var svg = d3
 //Read the data
 d3.csv(
   "https://raw.githubusercontent.com/nabaroa/weight-cycle-graph/main/docs/data.csv",
+
   // When reading the csv, I must format variables:
   function (d) {
     return {
@@ -26,6 +28,7 @@ d3.csv(
   },
   // Now I can use this dataset:
   function (data) {
+
     // Add X axis --> it is a date format
     var x = d3
       .scaleTime()
@@ -39,10 +42,12 @@ d3.csv(
       .append("g")
       .attr("transform", "translate(0," + height + ")")
       .call(d3.axisBottom(x));
+
     // Add Y axis
     var y = d3.scaleLinear().domain([52, 57]).range([height, 0]);
     svg.append("g").call(d3.axisLeft(y));
-    // Add the line
+
+    // Add the kilos line
     svg
       .append("path")
       .datum(data)
@@ -59,8 +64,7 @@ d3.csv(
           .y(function (d) {
             return y(d.kilos);
           })
-      );
-
+      )
     // Add the menstrual cycle points
     var z = d3.scaleLinear().range([0, 1]);
     svg
@@ -88,9 +92,9 @@ d3.csv(
       .enter()
       .append("line")
       .attr("x1", "0")
-      .attr("y1", "11.5%")
+      .attr("y1", "13.5%")
       .attr("x2", "100%")
-      .attr("y2", "11.5%")
+      .attr("y2", "13.5%")
       .attr("fill", "none")
       .attr("stroke", "#bb2a5c")
       .attr("stroke-width", "1")
@@ -115,6 +119,8 @@ d3.csv(
       // swimming tracking
       svg
       .append("g")
+      .attr("class","swimming")
+      .text('sd')
       .selectAll("dot")
       .data(data)
       .enter()
@@ -131,6 +137,7 @@ d3.csv(
     // yoga tracking
     svg
       .append("g")
+      .attr("class","yoga")
       .selectAll("dot")
       .data(data)
       .enter()
@@ -147,6 +154,7 @@ d3.csv(
     // walking tracking
     svg
       .append("g")
+      .attr("class","walking")
       .selectAll("dot")
       .data(data)
       .enter()
