@@ -69,7 +69,7 @@ function showGraph(data) {
   svg.selectAll(".myXaxis").call(xAxis);
 
   y.domain([
-    54,
+    52,
     d3.max(data, function (d) {
       return d.kilos;
     }),
@@ -98,6 +98,7 @@ function showGraph(data) {
     .attr("stroke", "grey")
     .attr("stroke-width", 1);
 
+  // menstrual cycle tracking
   svg
     .append("g")
     .selectAll("dot")
@@ -115,6 +116,7 @@ function showGraph(data) {
     })
     .attr("fill", "red");
 
+  // Top limit line
   svg
     .append("g")
     .selectAll("dot")
@@ -122,11 +124,27 @@ function showGraph(data) {
     .enter()
     .append("line")
     .attr("x1", "0")
-    .attr("y1", "26%")
+    .attr("y1", "13.5%")
     .attr("x2", "100%")
-    .attr("y2", "26%")
+    .attr("y2", "13.5%")
     .attr("fill", "none")
     .attr("stroke", "red")
+    .attr("stroke-width", "1")
+    .attr("stroke-dasharray", "4 10");
+
+  // Bottom limit line
+  svg
+    .append("g")
+    .selectAll("dot")
+    .data(data1)
+    .enter()
+    .append("line")
+    .attr("x1", "0")
+    .attr("y1", "63.5%")
+    .attr("x2", "100%")
+    .attr("y2", "63.5%")
+    .attr("fill", "none")
+    .attr("stroke", "green")
     .attr("stroke-width", "1")
     .attr("stroke-dasharray", "4 10");
 
