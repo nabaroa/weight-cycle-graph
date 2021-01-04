@@ -1,8 +1,8 @@
 // set the dimensions and margins of the graph
-var margin = { top: 10, right: 30, bottom: 150, left: 60 },
+var margin = { top: 10, right: 30, bottom: 180, left: 60 },
   width = 900 - margin.left - margin.right,
   height = 400 - margin.top - margin.bottom;
-  
+
 // append the svg object to the body of the page
 var svg = d3
   .select("#graph")
@@ -13,7 +13,7 @@ var svg = d3
   .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 //Read the data
 d3.csv(
-  "https://raw.githubusercontent.com/nabaroa/weight-cycle-graph/main/docs/data.csv",
+  "https://raw.githubusercontent.com/nabaroa/weight-cycle-graph/main/docs/data.csv?v=2",
 
   // When reading the csv, I must format variables:
   function (d) {
@@ -24,11 +24,12 @@ d3.csv(
       swimming: d.swimming,
       yoga: d.yoga,
       walking: d.walking,
+      headache: d.headache,
+      healthyfood: d.healthyfood,
     };
   },
   // Now I can use this dataset:
   function (data) {
-
     // Add X axis --> it is a date format
     var x = d3
       .scaleTime()
@@ -64,7 +65,7 @@ d3.csv(
           .y(function (d) {
             return y(d.kilos);
           })
-      )
+      );
     // Add the menstrual cycle points
     var z = d3.scaleLinear().range([0, 1]);
     svg
@@ -116,11 +117,11 @@ d3.csv(
       .attr("stroke-width", "1")
       .attr("stroke-dasharray", "4 10");
 
-      // swimming tracking
-      svg
+    // swimming tracking
+    svg
       .append("g")
-      .attr("class","swimming")
-      .text('sd')
+      .attr("class", "swimming")
+      .text("sd")
       .selectAll("dot")
       .data(data)
       .enter()
@@ -137,7 +138,7 @@ d3.csv(
     // yoga tracking
     svg
       .append("g")
-      .attr("class","yoga")
+      .attr("class", "yoga")
       .selectAll("dot")
       .data(data)
       .enter()
@@ -154,7 +155,7 @@ d3.csv(
     // walking tracking
     svg
       .append("g")
-      .attr("class","walking")
+      .attr("class", "walking")
       .selectAll("dot")
       .data(data)
       .enter()
@@ -167,11 +168,11 @@ d3.csv(
         return z(d.walking);
       })
       .attr("fill", "#ccc");
-    
-      // headache tracking
+
+    // headache tracking
     svg
       .append("g")
-      .attr("class","headache")
+      .attr("class", "headache")
       .selectAll("dot")
       .data(data)
       .enter()
@@ -184,5 +185,22 @@ d3.csv(
         return z(d.headache);
       })
       .attr("fill", "black");
+
+    // healthyfood tracking
+    svg
+      .append("g")
+      .attr("class", "healthyfood")
+      .selectAll("dot")
+      .data(data)
+      .enter()
+      .append("circle")
+      .attr("cx", function (d) {
+        return x(d.date);
+      })
+      .attr("cy", "250")
+      .attr("r", function (d) {
+        return z(d.healthyfood);
+      })
+      .attr("fill", "green");
   }
 );

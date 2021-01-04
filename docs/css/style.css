@@ -1,3 +1,7 @@
 .graph {
   overflow: auto;
 }
+
+.bg--green {
+  background: #02a23f;
+}
