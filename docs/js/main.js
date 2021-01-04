@@ -1,5 +1,5 @@
 // set the dimensions and margins of the graph
-var margin = { top: 10, right: 30, bottom: 120, left: 60 },
+var margin = { top: 10, right: 30, bottom: 150, left: 60 },
   width = 900 - margin.left - margin.right,
   height = 400 - margin.top - margin.bottom;
   
@@ -92,7 +92,7 @@ d3.csv(
       .enter()
       .append("line")
       .attr("x1", "0")
-      .attr("y1", "13.5%")
+      .attr("y1", "12%")
       .attr("x2", "100%")
       .attr("y2", "13.5%")
       .attr("fill", "none")
@@ -108,9 +108,9 @@ d3.csv(
       .enter()
       .append("line")
       .attr("x1", "0")
-      .attr("y1", "53.5%")
+      .attr("y1", "48%")
       .attr("x2", "100%")
-      .attr("y2", "53.5%")
+      .attr("y2", "48%")
       .attr("fill", "none")
       .attr("stroke", "green")
       .attr("stroke-width", "1")
@@ -128,7 +128,7 @@ d3.csv(
       .attr("cx", function (d) {
         return x(d.date);
       })
-      .attr("cy", "340")
+      .attr("cy", "310")
       .attr("r", function (d) {
         return z(d.swimming);
       })
@@ -145,7 +145,7 @@ d3.csv(
       .attr("cx", function (d) {
         return x(d.date);
       })
-      .attr("cy", "370")
+      .attr("cy", "340")
       .attr("r", function (d) {
         return z(d.yoga);
       })
@@ -162,10 +162,27 @@ d3.csv(
       .attr("cx", function (d) {
         return x(d.date);
       })
-      .attr("cy", "310")
+      .attr("cy", "280")
       .attr("r", function (d) {
         return z(d.walking);
       })
       .attr("fill", "#ccc");
+    
+      // headache tracking
+    svg
+      .append("g")
+      .attr("class","headache")
+      .selectAll("dot")
+      .data(data)
+      .enter()
+      .append("circle")
+      .attr("cx", function (d) {
+        return x(d.date);
+      })
+      .attr("cy", "370")
+      .attr("r", function (d) {
+        return z(d.headache);
+      })
+      .attr("fill", "black");
   }
 );
