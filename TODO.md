@@ -1,3 +1,5 @@
 <!-- TODO -->
-- control dates on X axys
-- decide how to use different months
+- Add tooltip with the day
+- Add description and ranges to legends
+- Add form to add data?
+- Calory counting calculator?
