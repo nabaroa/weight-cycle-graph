@@ -1,3 +1,4 @@
+// Health Tracking Graph
 // set the dimensions and margins of the graph
 var margin = { top: 10, right: 30, bottom: 180, left: 60 },
   width = 900 - margin.left - margin.right,
@@ -13,7 +14,7 @@ var svg = d3
   .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 //Read the data
 d3.csv(
-  "https://raw.githubusercontent.com/nabaroa/weight-cycle-graph/main/docs/data.csv?v=2",
+  "https://raw.githubusercontent.com/nabaroa/weight-cycle-graph/main/docs/data/data.csv?v=2",
 
   // When reading the csv, I must format variables:
   function (d) {

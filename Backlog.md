@@ -3,3 +3,4 @@
 - Add description and ranges to legends
 - Add form to add data?
 - Calory counting calculator?
+- Brand. Logo, colours
