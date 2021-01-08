@@ -1,4 +1,4 @@
-code,name,description,group,previous,references,footnote,water,nitrogen,Protein,fat,carbohydrate,energy,energykj),starch,oligosaccharide,sugars,glucose,galactose,fructose,sucrose,maltose,lactose,alcohol
+code,name,description,group,previous,references,footnote,water,nitrogen,protein,fat,carbohydrate,energy,energykj,starch,oligosaccharide,sugars,glucose,galactose,fructose,sucrose,maltose,lactose,alcohol
 13-145,"Ackee, canned, drained",8 cans,DG,554,"MW4, 1978; and Vegetables, Herbs and Spices Supplement, 1991",,76.7,0.46,2.9,15.2,0.8,151,625,Tr,,0.8,0.1,0.0,Tr,0.7,0.0,0.0,0,
 13-146,"Agar, dried",Literature sources,DG,,"Wu Leung et al. (1972) Food composition table for use in East Asia, Food and Agriculature Organization and US Department of Health",,9.7,0.26,1.3,1.2,Tr,16,67,0.0,,Tr,0.0,0.0,0.0,0.0,0.0,0.0,0
 13-147,"Agar, dried, soaked and drained",Literature sources,DG,,"Wu Leung et al. (1972) Food composition table for use in East Asia, Food and Agriculature Organization and US Department of Health",,84.2,0.03,0.2,0.1,Tr,2,7,0.0,,Tr,0.0,0.0,0.0,0.0,0.0,0.0,0
