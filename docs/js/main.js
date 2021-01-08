@@ -14,7 +14,7 @@ var svg = d3
   .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 //Read the data
 d3.csv(
-  "https://raw.githubusercontent.com/nabaroa/weight-cycle-graph/main/docs/data/data.csv?v=2",
+  "https://raw.githubusercontent.com/nabaroa/weight-cycle-graph/main/docs/data/data.csv",
 
   // When reading the csv, I must format variables:
   function (d) {
