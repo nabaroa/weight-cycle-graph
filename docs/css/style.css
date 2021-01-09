@@ -18,6 +18,14 @@
   color: var(--color--k-10);
 }
 
+@media (min-width: 756px) {
+  .food {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+}
+
 .food-element {
   padding: 20px 0;
   border-bottom: 1px solid #999;
