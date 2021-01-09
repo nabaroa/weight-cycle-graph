@@ -4,3 +4,6 @@
 - Add form to add data?
 - Calory counting calculator?
 - Brand. Logo, colours
+- Create a codepen with the tracking graph
+- Add macros graph
+- Add macros calculator
