@@ -13,6 +13,7 @@ d3.csv(
       protein: d.protein,
       energy: d.energy,
       fat: d.fat,
+      water: d.water,
     };
   },
   function (data) {
@@ -132,6 +133,31 @@ d3.csv(
       .attr("y", "16")
       .text(function (d) {
         return p(d.fat) + " g";
+      });
+   
+      //water
+    d3.selectAll(".food-element")
+      .append("svg")
+      .attr("width", "100%")
+      .attr("height", "20")
+      .append("g")
+      .attr("class", "water-graph")
+      .append("rect")
+      .attr("width", function (d) {
+        return p(d.water);
+      })
+      .attr("height", "16")
+      .attr("fill", "#72c0e5");
+
+    // water text
+    d3.selectAll(".water-graph")
+      .append("text")
+      .attr("x", function (d) {
+        return p(d.water) + 10;
+      })
+      .attr("y", "16")
+      .text(function (d) {
+        return p(d.water) + " g";
       });
   }
 );

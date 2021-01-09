@@ -13,6 +13,11 @@
   color: var(--color--k-10);
 }
 
+.bg--blue {
+  background: #72c0e5;
+  color: var(--color--k-10);
+}
+
 .food-element {
   padding: 20px 0;
   border-bottom: 1px solid #999;
