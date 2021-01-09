@@ -17,7 +17,7 @@ d3.csv(
     };
   },
   function (data) {
-    var p = d3.scaleLinear().range([0, 5]);
+    var p = d3.scaleLinear().range([0, 1]);
     svgFood
       .selectAll("dot")
       .data(data)
