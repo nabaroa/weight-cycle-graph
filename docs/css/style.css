@@ -12,3 +12,8 @@
   background: #02a23f;
   color: var(--color--k-10);
 }
+
+.food-element {
+  padding: 20px 0;
+  border-bottom: 1px solid #999;
+}
