@@ -203,5 +203,24 @@ d3.csv(
         return z(d.healthyfood);
       })
       .attr("fill", "green");
+
+    // Date tooltip
+    svg
+      .selectAll("dot")
+      .data(data)
+      .enter()
+      .append("g")
+      .attr("class", "tooltip")
+      .attr("y", function (d) {
+        return y(d.kilos);
+      })
+      .append("text")
+      .attr("class", "date")
+      .text(function (d) {
+        return d.date;
+      })
+      .attr("x", function (d) {
+        return x(d.date);
+      });
   }
 );
