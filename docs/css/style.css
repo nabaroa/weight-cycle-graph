@@ -8,6 +8,10 @@
   overflow: auto;
 }
 
+.color--k-5 {
+  color: var(--color--k-5);
+}
+
 .bg--green {
   background: #02a23f;
   color: var(--color--k-10);

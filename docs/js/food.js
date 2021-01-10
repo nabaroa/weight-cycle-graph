@@ -9,6 +9,7 @@ d3.csv(
   function (d) {
     return {
       name: d.name,
+      description: d.description,
       carbohydrate: d.carbohydrate,
       protein: d.protein,
       energy: d.energy,
@@ -27,6 +28,14 @@ d3.csv(
       .append("p")
       .text(function (d) {
         return d.name;
+      });
+
+    // Description
+    d3.selectAll(".food-element")
+      .append("p")
+      .attr("class", ("color--k-5 nk-mbl text"))
+      .text(function (d) {
+        return d.description;
       });
 
     // Energy
@@ -134,8 +143,8 @@ d3.csv(
       .text(function (d) {
         return p(d.fat) + " g";
       });
-   
-      //water
+
+    //water
     d3.selectAll(".food-element")
       .append("svg")
       .attr("width", "100%")
