@@ -5,3 +5,4 @@
 - Brand. Logo, colours
 - Add calories/macros calculator
 - Try charts.js & echarts
+- Add loader
