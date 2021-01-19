@@ -28,6 +28,7 @@ d3.csv(
       walking: d.walking,
       headache: d.headache,
       healthyfood: d.healthyfood,
+      ovulation: d.ovulation,
     };
   },
   // Now I can use this dataset:
@@ -69,6 +70,25 @@ d3.csv(
           })
       );
     // Add the menstrual cycle points
+    var z = d3.scaleLinear().range([0, 1]);
+    svg
+      .append("g")
+      .selectAll("dot")
+      .data(data)
+      .enter()
+      .append("circle")
+      .attr("cx", function (d) {
+        return x(d.date);
+      })
+      .attr("cy", function (d) {
+        return y(d.kilos);
+      })
+      .attr("r", function (d) {
+        return z(d.ovulation);
+      })
+      .attr("fill", "#b38192");
+  
+      // Add the ovulation disconfort days
     var z = d3.scaleLinear().range([0, 1]);
     svg
       .append("g")

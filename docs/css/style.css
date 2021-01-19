@@ -17,6 +17,11 @@
   color: var(--color--k-10);
 }
 
+.bg--pink {
+  background: #b38192;
+  color: var(--color--k-10);
+}
+
 .bg--blue {
   background: #72c0e5;
   color: var(--color--k-10);
