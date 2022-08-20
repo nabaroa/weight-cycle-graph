@@ -49,7 +49,7 @@ d3.csv(
       .call(d3.axisBottom(x));
 
     // Add Y axis
-    var y = d3.scaleLinear().domain([52, 57]).range([height, 0]);
+    var y = d3.scaleLinear().domain([50, 57]).range([height, 0]);
     svg2.append("g").call(d3.axisLeft(y));
 
     // Add the kilos line
