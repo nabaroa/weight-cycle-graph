@@ -71,7 +71,7 @@ d3.csv(
           })
       );
     // Add the menstrual cycle points
-    var z = d3.scaleLinear().range([0, 1]);
+    var z2 = d3.scaleLinear().range([0, 1]);
     svg2
       .append("g")
       .selectAll("dot")
@@ -85,12 +85,12 @@ d3.csv(
         return y(d.kilos);
       })
       .attr("r", function (d) {
-        return z(d.ovulation);
+        return z2(d.ovulation);
       })
       .attr("fill", "#b38192");
 
     // Add the ovulation disconfort days
-    var z = d3.scaleLinear().range([0, 1]);
+    var z2 = d3.scaleLinear().range([0, 1]);
     svg2
       .append("g")
       .selectAll("dot")
@@ -104,7 +104,7 @@ d3.csv(
         return y(d.kilos);
       })
       .attr("r", function (d) {
-        return z(d.cycle);
+        return z2(d.cycle);
       })
       .attr("fill", "#bb2a5c");
 
@@ -154,7 +154,7 @@ d3.csv(
       })
       .attr("cy", "310")
       .attr("r", function (d) {
-        return z(d.swimming);
+        return z2(d.swimming);
       })
       .attr("fill", "#6db5ba");
 
@@ -171,7 +171,7 @@ d3.csv(
       })
       .attr("cy", "340")
       .attr("r", function (d) {
-        return z(d.yoga);
+        return z2(d.yoga);
       })
       .attr("fill", "#e5cc70");
 
@@ -188,7 +188,7 @@ d3.csv(
       })
       .attr("cy", "280")
       .attr("r", function (d) {
-        return z(d.walking);
+        return z2(d.walking);
       })
       .attr("fill", "#ccc");
 
@@ -205,7 +205,7 @@ d3.csv(
       })
       .attr("cy", "370")
       .attr("r", function (d) {
-        return z(d.headache);
+        return z2(d.headache);
       })
       .attr("fill", "black");
 
@@ -222,7 +222,7 @@ d3.csv(
       })
       .attr("cy", "250")
       .attr("r", function (d) {
-        return z(d.healthyfood);
+        return z2(d.healthyfood);
       })
       .attr("fill", "green");
   }
